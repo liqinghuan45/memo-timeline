@@ -11,7 +11,7 @@ const quotes = [
   { text: "记忆是我们唯一的时间旅行方式", author: "卡尔维诺" },
 ]
 
-function Header({ onNewMemo, memoCount, isLeaving = false }) {
+function Header({ onNewMemo, memoCount, isLeaving = false, onQuoteClick }) {
   const quote = quotes[Math.floor(Date.now() / 86400000) % quotes.length]
 
   return (
@@ -48,10 +48,13 @@ function Header({ onNewMemo, memoCount, isLeaving = false }) {
             fragments of time
           </p>
 
-          {/* 引言 */}
-          <div className="max-w-lg mx-auto">
-            <p className="font-serif text-sm md:text-base text-muted-foreground/40 font-light leading-relaxed tracking-wide">
-              "{quote.text}"
+          {/* 引言 - 点击切换冥想模式（隐藏开关） */}
+          <div 
+            className="max-w-lg mx-auto cursor-pointer text-center"
+            onClick={onQuoteClick}
+          >
+            <p className="font-serif text-sm md:text-base text-muted-foreground/40 font-light leading-relaxed tracking-wide transition-colors duration-300 hover:text-muted-foreground/50">
+              「{quote.text}」
             </p>
             <p className="mt-3 text-[10px] text-muted-foreground/25 tracking-[0.3em]">
               — {quote.author}

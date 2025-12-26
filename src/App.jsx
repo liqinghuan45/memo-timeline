@@ -56,6 +56,7 @@ function App() {
   // 三个状态：idle, transitioning-out, editor-open, transitioning-in
   const [appState, setAppState] = useState('idle')
   const [editingMemo, setEditingMemo] = useState(null)
+  const [isQuoteMode, setIsQuoteMode] = useState(false)
 
   useEffect(() => {
     localStorage.setItem('memos', JSON.stringify(memos))
@@ -113,6 +114,7 @@ function App() {
               onNewMemo={() => openEditor()} 
               memoCount={memos.length}
               isLeaving={isPageLeaving}
+              onQuoteClick={() => setIsQuoteMode(!isQuoteMode)}
             />
             
             <main className="max-w-4xl mx-auto px-8 md:px-16 pb-24 relative z-10">
@@ -124,7 +126,7 @@ function App() {
               />
             </main>
 
-            <QuoteOverlay isLeaving={isPageLeaving} />
+            <QuoteOverlay isLeaving={isPageLeaving} isActive={isQuoteMode} />
           </motion.div>
         )}
       </AnimatePresence>
