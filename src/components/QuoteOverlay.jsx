@@ -11,6 +11,7 @@ const quotes = [
   { text: "盛年不重来，一日难再晨", author: "陶渊明", era: "365-427" },
   { text: "今人不见古时月，今月曾经照古人", author: "李白", era: "701-762" },
   { text: "此情可待成追忆，只是当时已惘然", author: "李商隐", era: "813-858" },
+  { text: "人生到处知何似，应似飞鸿踏雪泥", author: "苏轼", era: "1037-1101" },
 ]
 
 function splitText(text) {
